@@ -1,0 +1,251 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<style>
+    *{
+         margin: 0; 
+         padding: 0; 
+        box-sizing: border-box;
+        font-family: 'sans-serif';
+    }
+    body{
+        background-color: aliceblue;
+    }
+    .slide{
+        height: 100%;
+        width: 180px;
+        position: absolute;
+        background-color: rgb(243, 243, 243);
+        transform: translateX(-180px);
+        transition: 0.5s ease;
+    }
+    h1{
+        color: rgb(8, 73, 73);
+        font-weight: 800;
+        text-align: right;
+        padding: 10px 0;
+        padding-right: 30px;
+        pointer-events: none;
+    }
+    ul li{
+        list-style: none;
+    }
+    ul li a{
+        color: black;
+        font-weight: 500;
+        padding: 8px 3px 5px 7px;
+        text-transform: capitalize;
+        font-size: 19px;
+        text-decoration: none;
+        transition: 0.2s ease-out;
+        
+    }
+    ul li:hover a{
+        color: aliceblue;
+        background-color: black;
+    }
+    ul li a i{
+        width: 40px;
+        text-align: center;
+    }
+    input{
+        display: none;
+        visibility: hidden;
+        -webkit-appearance: none;
+    }
+    .toggle{
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        background-color: rgb(251, 251, 251);
+        z-index: 1;
+        cursor: pointer;
+        top: 20px;
+        border-radius: 2px;
+        left: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .toggle .common{
+        position: absolute;
+        height: 2px;
+        width: 20px;
+        background-color: purple;
+        border-radius: 50px;
+        transition: 0.3s ease;
+    }
+    .toggle .top_line{
+        top: 30%;
+        left: 30%;
+        transform: translate(-50% -50%);
+    }
+    .toggle .middle_line{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% -50%);
+    }
+    .toggle .bottom_line{
+        top: 70%;
+        left: 30%;
+        transform: translate(-50% -50%);
+    }
+    input:checked ~ .toggle .top_line{
+        left: 2px;
+        top: 14px;
+        width: 25px;
+        transform: rotate(45deg);
+    }
+    input:checked ~ .toggle .bottom_line{
+        left: 2px;
+        top: 14px;
+        width: 25px;
+        transform: rotate(-45deg);
+    }
+    input:checked ~ .toggle .middle_line{
+        left: 1px;
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    input:checked ~ .slide{
+        transform: translateX(0);
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+</style>
+<body>
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>menu</h1>
+            <ul>
+                <li><i class="fas fa-tv"></i><a href="#">kabx</a></li>
+                <li><i class="far fa-user"></i><a href="#">profile</a></li>
+                <li><i class="fab fa-gripfire"></i><a href="#">kabx</a></li>
+                <li><i class="far fa-comments"></i><a href="#">kabx</a></li>
+                <li><i class="far fa-folder"></i><a href="#">kabx</a></li>
+                <li><i class="far fa-heart"></i><a href="#">kabx</a></li>
+            </ul>
+        </div>
+    </label>
+</body>
+</html> 
+ -->
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMl2zZ4rPoexxL3rR7jbk5TlpN6v6w5jT5mfB4d" crossorigin="anonymous">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#watch-collection, #favorites {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.watch-item, .favorite-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+button.favorite-button i {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+button.remove-favorite-button {
+    background-color: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+</style>
+<body>
+    <h1>Watch Collection</h1>
+    <div id="watch-collection">
+        <div class="watch-item" data-model="Model A">
+            <p>Model A</p>
+            <button class="favorite-button"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="watch-item" data-model="Model B">
+            <p>Model B</p>
+            <button class="favorite-button"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="watch-item" data-model="Model C">
+            <p>Model C</p>
+            <button class="favorite-button"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+
+    <h1>Favorites</h1>
+    <div id="favorites"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const favoriteButtons = document.querySelectorAll('.favorite-button');
+    const favoritesContainer = document.getElementById('favorites');
+
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const watchItem = event.target.closest('.watch-item');
+            const model = watchItem.dataset.model;
+            addFavorite(model);
+            event.target.classList.remove('far');
+            event.target.classList.add('fas');
+        });
+    });
+
+    function addFavorite(model) {
+        const favoriteItem = document.createElement('div');
+        favoriteItem.className = 'favorite-item';
+        favoriteItem.innerHTML = `
+            <p>${model}</p>
+            <button class="remove-favorite-button">Remove</button>
+        `;
+        favoriteItem.querySelector('.remove-favorite-button').addEventListener('click', () => {
+            favoriteItem.remove();
+            const originalButton = document.querySelector(`.watch-item[data-model="${model}"] .favorite-button i`);
+            if (originalButton) {
+                originalButton.classList.remove('fas');
+                originalButton.classList.add('far');
+            }
+        });
+        favoritesContainer.appendChild(favoriteItem);
+    }
+});
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

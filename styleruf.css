@@ -1,0 +1,208 @@
+/* styles.css */
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(to right , rgb(1, 87, 55),rgb(6, 146, 95));
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'sans-serif';
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.menu li a:hover {
+    background-color: #023436;
+    border-radius: 5px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.lg img{
+    height: 45px;
+    width: 44px;
+    margin-left: 10pc;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .menu li a {
+        padding: 10px 20px;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+} */
+
+
+/* General reset */
+/* General reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.video-container {
+    position: relative;
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden;
+}
+
+#myVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
+    background: linear-gradient(to right ,rgb(6, 146, 95));
+    padding: 10px 20px;
+    z-index: 1;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    color: white;
+}
+
+.navbar .lg img {
+    width: 50px;
+    height: auto;
+}
+
+.menu-icon {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+}
+.lg img{
+    height: 45px;
+    width: 45px;
+    margin-left: 10pc;
+}
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .navbar .menu li a {
+        font-size: 16px;
+    }
+}

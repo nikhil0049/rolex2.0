@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMl2zZ4rPoexxL3rR7jbk5TlpN6v6w5jT5mfB4d" crossorigin="anonymous">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#watch-collection, #favorites {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.watch-item, .favorite-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+button.favorite-button i {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+button.remove-favorite-button {
+    background-color: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+</style>
+<body>
+    <h1>Watch Collection</h1>
+    <div id="watch-collection">
+        <div class="watch-item" data-model="Model A">
+            <p>Model A</p>
+            <button class="favorite-button"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="watch-item" data-model="Model B">
+            <p>Model B</p>
+            <button class="favorite-button"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="watch-item" data-model="Model C">
+            <p>Model C</p>
+            <button class="favorite-button"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+
+    <h1>Favorites</h1>
+    <div id="favorites"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const favoriteButtons = document.querySelectorAll('.favorite-button');
+    const favoritesContainer = document.getElementById('favorites');
+
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const watchItem = event.target.closest('.watch-item');
+            const model = watchItem.dataset.model;
+            addFavorite(model);
+            event.target.classList.remove('far');
+            event.target.classList.add('fas');
+        });
+    });
+
+    function addFavorite(model) {
+        const favoriteItem = document.createElement('div');
+        favoriteItem.className = 'favorite-item';
+        favoriteItem.innerHTML = `
+            <p>${model}</p>
+            <button class="remove-favorite-button">Remove</button>
+        `;
+        favoriteItem.querySelector('.remove-favorite-button').addEventListener('click', () => {
+            favoriteItem.remove();
+            const originalButton = document.querySelector(`.watch-item[data-model="${model}"] .favorite-button i`);
+            if (originalButton) {
+                originalButton.classList.remove('fas');
+                originalButton.classList.add('far');
+            }
+        });
+        favoritesContainer.appendChild(favoriteItem);
+    }
+});
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

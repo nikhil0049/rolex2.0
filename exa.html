@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    .new h1 {
+        margin-top: 15pc;
+        text-align: center;
+        color: white;
+        font-weight: 700;
+        font-size: 90px;
+        cursor: pointer;
+        margin-bottom: 160px;
+        /* display: none; */
+    }
+
+    .content1 {
+        text-align: center;
+        transition: opacity 0.5s ease;
+    }
+
+    .content1.hide {
+        opacity: 0;
+    }
+
+    .new {
+        text-align: center;
+        opacity: 0;
+        margin-top: 13pc;
+        transition: opacity 0.5s ease;
+    }
+
+    .new.show {
+        opacity: 1;
+    }
+
+    /* icons */
+    .icon {
+        fill: white;
+        margin-top: 10px;
+        flex-direction: row;
+        display: inline;
+        margin-right: 8px;
+    }
+
+    .box-icon {
+        fill: white;
+    }
+
+    .icon-list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .icon-list li {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+    }
+
+    .icon-list a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        /* color: inherit; */
+    }
+
+    .icon-list a:hover {
+        color: rgb(116, 241, 195);
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+        color: white;
+    }
+
+    .overlay.active {
+        display: block;
+        color: white;
+    }
+
+    .container {
+        font-size: 23px;
+        color: white;
+        margin-top: 300px;
+    }
+
+    .container .featurette-heading {
+        margin-top: 50px;
+        font-weight: 550;
+    }
+
+    .container .lead {
+        margin-top: 30px;
+    }
+
+    .container-fluid {
+        background-color: white;
+    }
+
+    .tc {
+        display: flex;
+    }
+
+    .tc h1 {
+        margin-top: 6pc;
+        margin-bottom: 6pc;
+        text-align: center;
+        margin-left: 34pc;
+        color: white;
+        background: linear-gradient(90deg, rgb(16, 74, 26), rgb(63, 123, 69) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Kanit", sans-serif;
+        font-weight: 700;
+    }
+
+    .dark-mode {
+        filter: brightness(50%);
+    }
+
+    .con2 {
+        background: url("img/datejustin.jpg") no-repeat center center/cover;
+        height: 750px;
+        display: flex;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    .pi {
+        text-align: start;
+        color: white;
+        margin-left: 53pc;
+        /* font-family: "Playfair Display", serif; */
+        font-family: 'SangBleuKingdom, "Times New Roman", Times, serif';
+        font-weight: 200;
+        font-size: 50px;
+        margin-top: 18pc;
+        justify-content: flex-end;
+    }
+
+    .pi span {
+        font-size: 20px;
+    }
+
+    .con3 {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin-top: 3pc;
+        /* align-items: center; */
+        /* text-align: center;  */
+    }
+
+    .con3 .d1 {
+        padding: 0;
+        margin: 0 30pc;
+        font-weight: 700;
+        font-size: 58px;
+    }
+
+    .con3 .d2 {
+        margin: 20px 30pc;
+        padding: 0;
+        font-size: 20px;
+        justify-content: flex-start;
+    }
+
+    .i1 {
+        margin-left: 30pc;
+    }
+
+    .con4 {
+        position: relative;
+        display: flex;
+        background: rgba(0, 0, 0, 0.4) no-repeat center center/cover;
+        height: 1030px;
+        background-blend-mode: darken;
+        /* background-attachment: fixed; */
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-blend-mode: darken;
+        width: 100%;
+        background-attachment: fixed;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3) url("img/rdayjust4.jpg") no-repeat center center/cover;
+        transition: filter 0.3s;
+    }
+
+    .image-overlay.blur {
+        filter: blur(10px);
+        background-attachment: fixed;
+    }
+
+    .con4 .e1 {
+        font-size: 58px;
+        font-weight: 700;
+        margin: 20px 30pc;
+        margin-top: 37pc;
+        color: white;
+    }
+
+    .con4 .e2 {
+        color: white;
+        margin-right: 19pc;
+        font-size: 20px;
+        margin-left: 30pc;
+    }
+
+    .tc1 {
+        display: flex;
+    }
+
+    .tc1 h1 {
+        margin-top: 3pc;
+        /* margin-bottom: 6pc; */
+        text-align: center;
+        margin-left: 32pc;
+        color: white;
+        background: linear-gradient(90deg,
+                rgb(64, 107, 113),
+                rgb(129, 182, 184) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Kanit", sans-serif;
+        font-weight: 700;
+    }
+
+    .box9 {
+        background: url("img/rdayjust2.jpg") no-repeat center center/cover;
+        height: 750px;
+        border: 21px solid white;
+        position: relative;
+        padding: 10px;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .con1 .h2 {
+        margin-left: 7pc;
+        font-weight: 700;
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+    }
+
+    .con1 .pb {
+        margin-left: 7pc;
+        cursor: pointer;
+        font-size: 25px;
+        color: white;
+    }
+
+    .con1 a {
+        text-decoration: none;
+        color: white;
+        margin-left: 7pc;
+        font-size: 20px;
+    }
+
+    .con1 a:hover {
+        color: grey;
+    }
+
+    .con1 {
+        margin-bottom: 160px;
+    }
+
+    .container-fluid1 {
+        flex-direction: row;
+        justify-content: flex-start;
+        display: block;
+        unicode-bidi: isolate;
+        position: absolute;
+    }
+
+    /* footer */
+
+    #my {
+        height: 50%;
+        width: 50%;
+        position: relative;
+        opacity: 0.1;
+        z-index: 10;
+        margin: 18pc 20pc;
+        /* filter: blur(px); */
+    }
+
+    /* .container {
+          margin-top: 12.8pc;
+        
+      } */
+
+    .container-fluid3 {
+        background-color: black;
+        margin-top: 0pc;
+    }
+
+    .p {
+        background-color: black;
+        /* border: 2px solid red; */
+        padding: 3pc 11pc;
+        position: absolute;
+        margin: 40pc 58pc;
+    }
+
+    .wrapper,
+    .content {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .content {
+        overflow: hidden;
+    }
+
+    .content .section {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .content .section.hero {
+        background: url("datejust.php") no-repeat center center/cover;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        perspective: 500px;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        position: absolute;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .content .section.gradient-purple {
+        background: linear-gradient(to bottom, #6a11cb, #2575fc);
+    }
+
+    .content .section.gradient-blue {
+        background: linear-gradient(to bottom, #00c6ff, #0072ff);
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <section class="section hero">
+                <video autoplay muted loop id="myVideo">
+                    <source src="img/datejust.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="content1">
+                    <h3>oyster perpetual</h3>
+                    <h1>Datejust</h1>
+                </div>
+                <div class="new">
+                    <h1>Make A Date Of A Day</h1>
+                </div>
+            </section>
+            <section class="section gradient-purple"></section>
+            <section class="section gradient-blue"></section>
+        </div>
+        <div class="image-container">
+            <img src="/Rolex/img/aaa.webp" alt="" />
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        console.clear();
+        gsap.registerPlugin(ScrollTrigger);
+        window.addEventListener("load", () => {
+            gsap
+                .timeline({
+                    scrollTrigger: {
+                        trigger: ".wrapper",
+                        start: "top top",
+                        end: "+=150%",
+                        pin: true,
+                        scrub: true,
+                        markers: true,
+                    },
+                })
+                .to(".image-container img", {
+                    scale: 6,
+                    opacity: 1,
+                    transformOrigin: "center center",
+                    ease: "power1.inOut",
+                })
+                .to(
+                    ".section.hero",
+                    {
+                        scale: 1,
+                        transformOrigin: "center center",
+                        ease: "power1.inOut",
+                    },
+                    "<"
+                );
+        });
+    </script>
+     
+</body>
+
+</html>
